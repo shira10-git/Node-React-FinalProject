@@ -1,0 +1,14 @@
+/* .card1{
+    background: url('../../pics/homepic.jpg.JPG');
+    padding: 1rem;
+    -webkit-font-smoothing: antialiased;
+    background-repeat: no-repeat; 
+    background-size:cover;
+} */
+body{
+    background: url("../src/pics/homepic.JPG");
+    padding: 1rem;
+    -webkit-font-smoothing: antialiased;
+    background-repeat: no-repeat; 
+    background-size:cover;
+}
