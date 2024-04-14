@@ -357,8 +357,7 @@ input.input100 {
 
 .input100:focus + .focus-input100 {
   visibility: visible;
-  opacity: 1;
-
+  opacity: 2;
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
   -ms-transform: scale(1);

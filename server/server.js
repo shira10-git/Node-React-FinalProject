@@ -10,13 +10,17 @@ const app=express()
 
 connectDB()
 console.log(process.env.NODE_ENV)
-app.use(express.static("uploads"))
+
+
+app.use(express.static("public"))
 
 app.get('/uploads/:filename', (req, res) => {
     const imagePath = path.join(__dirname, '/', req.params.filename);
     res.sendFile(imagePath, { headers: { 'Content-Type': 'image/jpeg' } });
 });
-app.use('/uploads', express.static(__dirname + '/uploads/'));
+app.use('/uploads', express.static(__dirname + '/'));
+
+
 
 app.use(cors(corsOptions))
 app.use(express.json())

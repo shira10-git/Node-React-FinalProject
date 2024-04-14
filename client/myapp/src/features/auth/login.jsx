@@ -19,10 +19,12 @@ import { jwtDecode } from "jwt-decode"
 import useAuth from "./useAuth";
 import '../../css/main.css'
 import '../../css/util.css'
+import { Checkbox } from 'primereact/checkbox';
 import image from './building.jpg'
 const Login = () => {
     const [userName, setUserName] = useState()
     const [password, setPassword] = useState()
+    const [checked, setChecked] = useState(false);
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
@@ -95,16 +97,17 @@ const Login = () => {
             <div class="container-login100">
                 <div class="wrap-login100">
                     <form class="login100-form validate-form" onSubmit={handleSubmit(onSubmit)}>
-                        <span class="login100-form-title p-b-43">
-                            כניסה                        </span>
-                        <div class="wrap-input100 validate-input" >
+                        <span class="login100-form-title p-b-46">
+                            כניסה   </span>
+                        <div class="wrap-input100 validate-input" data-validate="שם משתמש חובה" >
                             <Controller name="userName" control={control} rules={{ required: 'שם משתמש הוא חובה' }} render={({ field, fieldState }) => (
                                 <input class="input100" id={field.name} {...field} autoFocus />
 
                             )} />
                             {/* <label htmlFor="name" className={classNames({ 'p-error': errors.name })}>User Name*</label> */}
+
                             <span class="focus-input100"></span>
-                            <span class="label-input100">שם משתמש</span>
+                            <span class="label-input100" >שם משתמש</span>
                             {getFormErrorMessage('userName')}
                         </div>
 
@@ -116,22 +119,36 @@ const Login = () => {
 					</div> */}
                         <div class="wrap-input100 validate-input" data-validate="סיסמא חובה">
 
-                            <Controller name="password" control={control} rules={{ required: 'Password is required.' }} render={({ field, fieldState }) => (
-                                <input class="input100" type="password" id={field.name} {...field} toggleMask />
+                            <Controller name="password" control={control} rules={{ required: '.סיסמא חובה' }} render={({ field, fieldState }) => (
+                                <input class="input100" type="password" id="myInput" {...field} feedback={false} />
+
+
                             )} />
+
                             {/* <label htmlFor="password" className={classNames({ 'p-error': errors.password })}>Password*</label> */}
+
 
                             <span class="focus-input100"></span>
                             <span class="label-input100">סיסמא</span>
                             {getFormErrorMessage('password')}
                         </div>
+                        <div className="flex align-items-center">
+                            <Checkbox checked={checked} onClick={myFunction => {
+                                var x = document.getElementById("myInput");
+                                if (x.type === "password") {
+                                    setChecked(true)
+                                    x.type = "text";
+                                } else {
+                                    x.type = "password";
+                                    setChecked(false)
+                                }
+                            }}></Checkbox>
+                            <label className="ml-2">הצגת סיסמא</label>
+                        </div>
                         <div class="flex-sb-m w-full p-t-3 p-b-32">
-
-
                             <div>
-                                <a href="#" class="txt1">
-                                    Forgot Password?
-                                </a>
+                                <a href="" class="txt1">
+                                    שכחת סיסמא                                   </a>
                             </div>
                         </div>
 
@@ -153,7 +170,5 @@ const Login = () => {
 
 }
 export default Login
-
-
 
 

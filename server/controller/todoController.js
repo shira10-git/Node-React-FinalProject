@@ -10,7 +10,6 @@ const createNewTodo = async (req, res) => {
      imageUrlMan = req.file.path; 
 }
     
-
     const { title, workerComments, urgency, workerId,workerName, recievingDate, description } = req.body
     
     if (!title || !workerId) {
@@ -82,8 +81,9 @@ const deleteTodo = async (req, res) => {
 }
 
 const updateTodo = async (req, res) => {
+    
     console.log(req.file);
-    const { _id, title, workerComments, urgency, imageUrlMan, imageUrlWor, workerId, description, complete, doneDate } = req.body
+    const { _id, title, workerComments, urgency, workerId, description, complete, doneDate } = req.body
     if (!title ) {
         return res.status(400).json({ message: ' title is required' })
     }
