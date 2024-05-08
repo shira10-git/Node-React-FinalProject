@@ -28,7 +28,7 @@ const AllTodos = ({ done }) => {
     const toast = useRef(null);
     const { data: todos, isLoading, isError, error } = useGetTodosQuery(done);
     const [getUserById, { isErroru, erroru, isSuccessu, datau }] = useGetUserByIdMutation()
-    console.log(todos);
+    
     const [searchParams] = useSearchParams()
     const q = searchParams.get("q")
     let filterData
@@ -68,9 +68,6 @@ const AllTodos = ({ done }) => {
         }
     };
 
-    // const name = (userNa) => {
-    //     getUserById(userNa)
-    // }
     const itemTemplate = (data) => {
 
         //  getUserById(data.workerId)
@@ -88,35 +85,30 @@ const AllTodos = ({ done }) => {
                                 <div className="text-2xl font-bold text-1500">{data.description}</div>
                                 <div className="text-2xl font-bold text-1500">{data.workerName}</div>
                                 <div className="text-2xl font-bold text-1500">{data.workerComments}</div>
-                                <div className="text-2xl font-bold text-1500">{data.urgency}</div>
-                                {/* {name(data.workerId)} */}
-
-
-                                <div className="text-2xl font-bold text-1500" >{done ? `amount of days that took to do assignment ${data.doneDate}` : `התקבל ב:: ${data.recievingDate}`}</div>
-                                {/* <div className="text-2xl font-bold text-1500" label="h">{data.doneDate}</div> */}
+                                <div className="text-2xl font-bold text-1500">{data.urgency==="low"?"נמוכה":data.urgency==="medium"?"בינונית":data.urgency==="high"?"גבוהה":"דחופה"}</div>
+                               
+                        <div className="text-2xl font-bold text-1500" >{done ? `${data.doneDate} :משך זמן ביצוע המשימה` : `התקבל ב:: ${data.recievingDate}`}</div>
+                               
 
 
                                 {!show?<div className="card flex flex-wrap justify-content gap-3">
                                     <DeleteTodo _id={data._id} />
                                     <UpdatTodo data={data} /> </div>:""}
-                                {/* <div className="text-200">{getSeverity(data.active)}</div> */}
                             </div>
                            
 
                             <div className="flex flex-column gap-2">
-                                {/* <Rating value={data.rating} readOnly cancel={false}></Rating> */}
+                             
                                 <span className="flex align-items-center gap-3">
                                     <i className="pi pi-tag product-category-icon"></i>
                                     <span className="font-semibold">{role}</span>
-                                    {/* <span className="font-semibold">{getSeverity(data.active)}</span> */}
+                                   
                                 </span>
                             </div>
                         </div>
                         <div className="flex flex-row lg:flex-column align-items-center lg:align-items-end gap-4 lg:gap-2">
                        {show? <><UpdatTodo data={data}/></>:data.imageUrlWor?<ShowImageWor img={data.imageUrlWor}/>:""}
-                            <span className="text-2xl font-semibold">{active}</span>
-                            {/* <Button  label="Add Assignment" disabled={data.active === 'false'} onClick={()=><AddTodo/>}>  <MdAssignmentAdd /></Button> */}
-                            
+                            <span className="text-2xl font-semibold">{active}</span>                            
                         </div>
                     </div>
                 </div>

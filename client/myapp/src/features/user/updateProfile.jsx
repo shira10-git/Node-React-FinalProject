@@ -24,7 +24,7 @@ const UpdateProfile = () => {
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
     const { _id, name, userName,phone, role, email } = useAuth()
-    console.log("rrrr" + role);
+   
     const letter = userName[0]
     useEffect(() => {
         if (role === 'manager') {
@@ -59,11 +59,10 @@ const UpdateProfile = () => {
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
     const onSubmit = (data) => {
         setFormData(data);
-        console.log(data.role+"asasasasasas");
+        
         setShowMessage(true);
         updateUser(data)
         setVisible(false)
-        console.log(role + "after submit")
 
     };
     const handleCancel = () => {

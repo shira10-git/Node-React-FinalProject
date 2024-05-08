@@ -54,9 +54,9 @@ const UpdateUser = ({ data }) => {
 
 
     const roles = [
-        'worker',
-        'manager',
-        'advancedWorker'
+        'עובד',
+        'מנהל',
+        'עובד מומחה'
 
     ];
 
@@ -69,19 +69,40 @@ const UpdateUser = ({ data }) => {
         phone: data.phone,
         role: data.role
     }
+    useEffect(()=>{
+        reset({
+            userName: data.userName,
+        password: data.password ? data.password : "",
+        name: data.name ? data.name : "",
+        email: data.email,
+        phone: data.phone,
+        role: data.role
+        })
+    },[data])
+
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
 
 
     const onSubmit = (data) => {
-
+        changeToHebrew(data)
         setFormData(data);
         setShowMessage(true);
         updateUser(data)
         setVisible(false)
       
-        console.log(data.role + "after submit")
+   
        
     };
+    const changeToHebrew = (val) => {
+        if (val.role == "עובד")
+            val.role= "worker"
+        else {
+            if (val.role == "מנהל")
+                val.role = "manager"
+            else
+                val.role = "advancedWorker"
+        }
+    }
     const handleCancel = () => {
 
         setVisible(false)
@@ -108,7 +129,9 @@ const UpdateUser = ({ data }) => {
 
                 <div className="flex justify-content-center">
                     <div className="card">
-                        <h5 className="text-center">עדכון משתמש</h5>
+                        <h2 className="text-center">עדכון משתמש</h2>
+                        <br>
+                        </br>
                         <form onSubmit={handleSubmit(onSubmit)} className="p-fluid">
                             <div className="field">
                                 <span className="p-float-label">

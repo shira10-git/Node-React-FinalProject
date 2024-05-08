@@ -43,10 +43,9 @@ const Login = () => {
         //   debugger
         if (data) {
             const userDecoded = jwtDecode(data.token)
-            console.log("userDecoded", userDecoded)
+           
             const { _id, name, userName, phone, role, email } = userDecoded
             if (isSuccess) {
-                console.log("bbbbbbb" + role + "jj");
                 dispatch(setToken(data))
                 if (role === "manager") {
 
@@ -104,19 +103,13 @@ const Login = () => {
                                 <input class="input100" id={field.name} {...field} autoFocus />
 
                             )} />
-                            {/* <label htmlFor="name" className={classNames({ 'p-error': errors.name })}>User Name*</label> */}
 
                             <span class="focus-input100"></span>
                             <span class="label-input100" >שם משתמש</span>
                             {getFormErrorMessage('userName')}
                         </div>
 
-                        {/* <div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass" onChange={e=>setPassword(e.target.value)}/>
-						<span class="focus-input100"></span>
-						<span class="label-input100">Password</span> 
-                         
-					</div> */}
+                     
                         <div class="wrap-input100 validate-input" data-validate="סיסמא חובה">
 
                             <Controller name="password" control={control} rules={{ required: '.סיסמא חובה' }} render={({ field, fieldState }) => (
@@ -125,7 +118,7 @@ const Login = () => {
 
                             )} />
 
-                            {/* <label htmlFor="password" className={classNames({ 'p-error': errors.password })}>Password*</label> */}
+                           
 
 
                             <span class="focus-input100"></span>
@@ -145,13 +138,14 @@ const Login = () => {
                             }}></Checkbox>
                             <label className="ml-2">הצגת סיסמא</label>
                         </div>
-                        <div class="flex-sb-m w-full p-t-3 p-b-32">
+                        {/* <div class="flex-sb-m w-full p-t-3 p-b-32">
                             <div>
                                 <a href="" class="txt1">
                                     שכחת סיסמא                                   </a>
                             </div>
-                        </div>
-
+                        </div> */}
+<br>
+</br>
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn" type="submit">

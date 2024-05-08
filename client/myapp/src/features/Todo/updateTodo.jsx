@@ -64,10 +64,10 @@ const UpdatTodo = ({ data }) => {
     }
 
     const urgencies = [
-        'low',
-        'medium',
-        'high',
-        'imediatly',
+        'נמוכה', 
+        'בינונית',
+         'גבוהה', 
+        'דחופה'
     ];
 
     const customBase64Uploader = async (event) => {
@@ -91,7 +91,6 @@ const UpdatTodo = ({ data }) => {
 
 
     const defaultValues = {
-
         title: data.title,
         workerId: data.workerId,
         email: data.email ? data.email : "",
@@ -108,7 +107,7 @@ const UpdatTodo = ({ data }) => {
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
 
     const onSubmit = (data) => {
-
+        changeToHebrew(data)
         const formData = new FormData();
         formData.append('title', data.title);
         formData.append('workerId', data.workerId);
@@ -135,7 +134,17 @@ const UpdatTodo = ({ data }) => {
         setVisible(false)
         // reset();
     };
-
+    const changeToHebrew=(data)=>{
+        if(data.urgency=="נמוכה")
+            data.urgency= " low";
+        
+        if(data.urgency=="בינונית")
+            data.urgency= 'medium';
+        if(data.urgency=="גבוהה")
+            data.urgency= 'high';
+        else 
+        data.urgency= 'imediatly';
+    }
     const getFormErrorMessage = (name) => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>
     };

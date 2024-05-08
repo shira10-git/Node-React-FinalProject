@@ -18,7 +18,7 @@ const AllWorkers = () => {
     const toast = useRef(null);
 
     const [searchParams] = useSearchParams()
-    // const [products, setProducts] = useState([]);
+   
     const { data: users, isLoading, isError, error } = useGetUsersQuery();
     if (isLoading) return <h1>Loading</h1>
     if (isError) return <h2>{error}</h2>
@@ -30,10 +30,6 @@ const AllWorkers = () => {
         filterData = !q ? [...users] :
             users.filter(u => u.userName.indexOf(q) > -1)
     }
-    // useEffect(() => {
-    //     ProductService.getProducts().then((data) => setProducts(data));
-    // }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
     const getSeverity = (active) => {
         switch (active) {
             case true:
@@ -46,31 +42,8 @@ const AllWorkers = () => {
                 return null;
         }
     };
+   
 
-    // public void SendEmail(string emailTo)
-    // {
-    //     // Set up the email message
-    //     MailMessage mail = new MailMessage();
-    //     mail.From = new MailAddress("YadBeyad2024@gmail.com", "יד ביד - מכירה סינית 2024");
-    //     mail.To.Add(emailTo);
-    //     mail.Subject = "מערכת יד ביד - מכירה סינית 2024";
-    //     mail.Body = "<div dir=\"rtl\">מזל טוב על זכייתך במכירה סינית.<br><br>!!המשך לצבור זכויות ותתרום תמיד אלינו</div>";
-
-    //     mail.IsBodyHtml = true;
-
-    //     // Set up the SMTP client
-    //     SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-    //     smtpClient.Port = 587; // or the appropriate port number
-    //     smtpClient.Credentials = new NetworkCredential("YadBeyad2024@gmail.com", "rldm vxiq taeh ccko");
-    //     //smtpClient.Credentials = new NetworkCredential("yehuda5862522@gmail.com", "stdu ywhk eski eixd");
-    //     smtpClient.EnableSsl = true;
-
-    //     // Send the email
-    //     smtpClient.Send(mail);
-    // }
-
-
-    {/* <a href="mailto:`{email}`?subject={subject}&body={body}">Click to Send an Email</a> */ }
 
 
     const itemTemplate = (data) => {
@@ -97,7 +70,7 @@ const AllWorkers = () => {
                                 {/* <Rating value={data.rating} readOnly cancel={false}></Rating> */}
                                 <span className="flex align-items-center gap-2">
                                     <i className="pi pi-tag product-category-icon"></i>
-                                    <span className="font-semibold">{data.role}</span>
+                                    <span className="font-semibold">{data.role==="manager"?"מנהל":data.role==="worker"?"עובד":"עובד מומחה"}</span>
                                     {/* <span className="font-semibold">{getSeverity(data.active)}</span> */}
                                 </span>
                             </div>

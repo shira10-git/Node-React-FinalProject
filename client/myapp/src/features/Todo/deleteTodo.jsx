@@ -5,7 +5,6 @@ import { Toast } from "primereact/toast";
 import { useEffect, useRef } from "react";
 import { useDeleteTodoMutation } from "./todoApiSlice";
 const DeleteTodo = ({_id}) => {
-    console.log(_id)
     const toast = useRef(null);
     const [deleteTodo, { isError, isSuccess, error }] = useDeleteTodoMutation()
     useEffect(() => {

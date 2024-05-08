@@ -29,7 +29,6 @@ const AddTodo = ({da}) => {
 
    
 useEffect(() => {
-        console.log('errrrr', error);
         if (isError) {
             toast.current.show({ severity: 'error', summary: 'Error', detail: error.data.message })
         }
@@ -42,11 +41,13 @@ useEffect(() => {
     }, [isSuccess])
 
 
+
+    
     const urgencies = [
-        'low', 
-        'medium',
-         'high', 
-        'imediatly'
+        'נמוכה', 
+        'בינונית',
+         'גבוהה', 
+        'דחופה'
     ];
 
 
@@ -63,7 +64,7 @@ useEffect(() => {
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
 
     const onSubmit = (data) => {
-
+        changeToHebrew(data)
         const formData = new FormData();
         formData.append('title', data.title);
           formData.append('workerId',data.workerId);
@@ -77,6 +78,17 @@ useEffect(() => {
         addTodo(formData)
         reset();
     };
+    const changeToHebrew=(data)=>{
+        if(data.urgency=="נמוכה")
+            data.urgency= " low";
+        
+        if(data.urgency=="בינונית")
+            data.urgency= 'medium';
+        if(data.urgency=="גבוהה")
+            data.urgency= 'high';
+        else 
+        data.urgency= 'imediatly';
+    }
     const customBase64Uploader = async (event) => {
         const file = event.files[0];
         const reader = new FileReader();
@@ -114,7 +126,7 @@ useEffect(() => {
         
             <div className="flex justify-content-center">
                 <div className="card">
-                    <h5 className="text-center">הוספת משימה</h5>
+                    <h2 className="text-center">הוספת משימה</h2><br></br>
                     <form onSubmit={handleSubmit(onSubmit)} className="p-fluid">
                         <div className="field">
                             <span className="p-float-label">
@@ -158,8 +170,8 @@ useEffect(() => {
                             </span>
                         </div><br></br>
 
-                        <Button type="submit" label="Submit" className="mt-2" />
-                        <Button label="cancel"  onClick={(e) => { setVisible(false)}}  className="mt-2"/>
+                        <Button type="submit" label="אישור" className="mt-2" />
+                        <Button label="ביטול"  onClick={(e) => { setVisible(false)}}  className="mt-2"/>
                        
                     </form> 
                 </div>
