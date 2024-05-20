@@ -71,7 +71,7 @@ const UpdateProfile = () => {
                 reject>
                 <div className="flex justify-scontent-center">
                     <div className="card">
-                        <h5 className="text-center">עדכון פרופיל</h5>
+                        <h3 className="text-center">עדכון פרופיל</h3><br></br>
                         <form onSubmit={handleSubmit(onSubmit)} className="p-fluid">
                             <div className="field">
 
