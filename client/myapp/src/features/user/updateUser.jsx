@@ -4,16 +4,9 @@ import { useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
-import { InputMask } from "primereact/inputmask";
-
 import { useForm, Controller } from 'react-hook-form';
 import { Dropdown } from 'primereact/dropdown';
-import { Calendar } from 'primereact/calendar';
-import { Checkbox } from 'primereact/checkbox';
-import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
-import { ListBox } from 'primereact/listbox';
-import { PrimeIcons } from 'primereact/api';
 import 'primeicons/primeicons.css';
 import { Password } from 'primereact/password';
 import { Toast } from "primereact/toast";
@@ -103,12 +96,7 @@ const UpdateUser = ({ data }) => {
                 val.role = "advancedWorker"
         }
     }
-    const handleCancel = () => {
 
-        setVisible(false)
-       
-
-    }
     const getFormErrorMessage = (name) => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>
     };

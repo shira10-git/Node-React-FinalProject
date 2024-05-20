@@ -14,8 +14,6 @@ const Nav = () => {
     return (
         <nav>
             <ul>
-                {/* <li> <NavLink to='/'></NavLink></li>
-                <li> <NavLink to='/user/userrrr'></NavLink></li> */}
                 {isUserLoggedIn && <li> <a
                     onClick={handleLogoutClick} > Logout </a></li>}
             </ul>

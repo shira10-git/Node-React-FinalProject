@@ -3,18 +3,11 @@ import { useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
-import { InputMask } from "primereact/inputmask";
-
 import { useForm, Controller } from 'react-hook-form';
 import { Dropdown } from 'primereact/dropdown';
-import { Calendar } from 'primereact/calendar';
 import { Checkbox } from 'primereact/checkbox';
-import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
-import { ListBox } from 'primereact/listbox';
-import { PrimeIcons } from 'primereact/api';
 import 'primeicons/primeicons.css';
-import { Password } from 'primereact/password';
 import { Toast } from "primereact/toast";
 import { useUpdateTodoMutation } from "./todoApiSlice";
 import { FileUpload } from "primereact/fileupload";
@@ -86,10 +79,6 @@ const UpdatTodo = ({ data }) => {
         else
             selectedFile(null)
     };
-
-
-
-
     const defaultValues = {
         title: data.title,
         workerId: data.workerId,
@@ -101,9 +90,6 @@ const UpdatTodo = ({ data }) => {
         complete: checked,
         workerComments: data.workerComments ? data.workerComments : ""
     }
-
-
-
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
 
     const onSubmit = (data) => {
@@ -114,15 +100,6 @@ const UpdatTodo = ({ data }) => {
         formData.append('workerName', data.workerName);
         formData.append('description', data.description);
         formData.append('imageUrlMan', selectedFile);
-        // if (show) {
-        //     formData.append('imageUrlMan', data.imageUrlMan);
-        //     formData.append('imageUrlWor', selectedFile);
-        // }
-        // else {
-        //     formData.append('imageUrlMan', selectedFile);
-        //     formData.append('imageUrlWor', data.imageUrlMan);
-        // }
-
         formData.append('urgency', data.urgency);
         formData.append('complete', checked);
         formData.append('workerComments', data.workerComments);
@@ -132,7 +109,6 @@ const UpdatTodo = ({ data }) => {
 
         updateTodo(formData)
         setVisible(false)
-        // reset();
     };
     const changeToHebrew=(data)=>{
         if(data.urgency=="נמוכה")

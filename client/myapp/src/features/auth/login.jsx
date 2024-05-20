@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { InputText } from "primereact/inputtext";
 import "primereact/resources/themes/lara-light-cyan/theme.css"
-import { Password } from 'primereact/password';
-import { Button } from 'primereact/button';
-import { classNames } from 'primereact/utils';
 import "primereact/resources/primereact.min.css"
 import "primeflex/primeflex.css"
 import { setToken } from './authSlice';
@@ -12,16 +8,12 @@ import { useNavigate } from 'react-router-dom';
 import { useLoginMutation } from './authApiSlice';
 import "primereact/resources/themes/lara-light-cyan/theme.css"
 import { useForm, Controller } from 'react-hook-form';
-import { Divider } from 'primereact/divider';
 import { jwtDecode } from "jwt-decode"
-import useAuth from "./useAuth";
 import '../../css/main.css'
 import '../../css/util.css'
 import { Checkbox } from 'primereact/checkbox';
 import image from './building.jpg'
 const Login = () => {
-    const [userName, setUserName] = useState()
-    const [password, setPassword] = useState()
     const [checked, setChecked] = useState(false);
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -71,8 +63,6 @@ const Login = () => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>
     };
 
-
-
     return (
         <div class="limiter">
             <div class="container-login100">
@@ -99,9 +89,6 @@ const Login = () => {
 
 
                             )} />
-
-
-
                             <span class="focus-input100"></span>
                             <span class="label-input100">סיסמא</span>
                             {getFormErrorMessage('password')}

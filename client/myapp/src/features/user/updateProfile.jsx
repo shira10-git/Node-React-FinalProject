@@ -5,15 +5,8 @@ import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { useForm, Controller } from 'react-hook-form';
-import { Dropdown } from 'primereact/dropdown';
-import { Calendar } from 'primereact/calendar';
-import { Checkbox } from 'primereact/checkbox';
-import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
-import { ListBox } from 'primereact/listbox';
-import { PrimeIcons } from 'primereact/api';
 import 'primeicons/primeicons.css';
-import { Password } from 'primereact/password';
 import { Toast } from "primereact/toast";
 import useAuth from '../auth/useAuth';
 const UpdateProfile = () => {
@@ -49,7 +42,6 @@ const UpdateProfile = () => {
     const defaultValues = {
         _id:_id,
         userName: userName,
-        // password: password ? password : "",
         name: name ? name : "",
         email: email,
         phone: phone ? phone : "",
@@ -65,16 +57,10 @@ const UpdateProfile = () => {
         setVisible(false)
 
     };
-    const handleCancel = () => {
 
-        setVisible(false)
-    }
     const getFormErrorMessage = (name) => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>
     };
-
-    const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus onClick={() => setShowMessage(false)} /></div>;
-    const passwordHeader = <h6>Pick a password</h6>;
 
     return (
         <div className="form-demo">

@@ -3,43 +3,17 @@ import { useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
-import { InputMask } from "primereact/inputmask";
-
 import { useForm, Controller } from 'react-hook-form';
 import { Dropdown } from 'primereact/dropdown';
-import { Calendar } from 'primereact/calendar';
-import { Checkbox } from 'primereact/checkbox';
-import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
-
 import { useAddTodoMutation, useAddUserMutation } from './userApiSlice';
-import { ListBox } from 'primereact/listbox';
-import { PrimeIcons } from 'primereact/api';
 import 'primeicons/primeicons.css';
 import { Password } from 'primereact/password';
 import { Toast } from "primereact/toast";
-//import emailjs from '@emailjs/browser';
-
-
-
-
 const AddUser = () => {
     const toast = useRef(null);
-    // const [selectedRole, setSelectedRole] = useState({ name: 'worker' });
-    // const roles = [
-    //     { name: 'worker' },
-    //     { name: 'manager' },
-    //     { name: 'advancedWorker' }
-
-    // ];
     const [visible, setVisible] = useState(false);
     const [addUser, { isError, isSuccess, error }] = useAddUserMutation()
-
-    // useEffect(() => {
-    //     const a = selectedRole[0]
-    //     setFormData({ ...formData, ["role"]: selectedRole.name })
-    //     console.log(selectedRole.name);
-    // }, [selectedRole])
 
     useEffect(() => {
 
@@ -64,14 +38,6 @@ const AddUser = () => {
         })
     },[])
 
-
-
-
-
-    const saveUser = () => {
-        addUser(formData)
-
-    }
     const roles = [
         'עובד',
         'מנהל',
@@ -106,8 +72,7 @@ const AddUser = () => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>
     };
 
-    const dialogFooter = <div className="flex justify-content-center"><Button label="OK" className="p-button-text" autoFocus onClick={() => setShowMessage(false)} /></div>;
-    const passwordHeader = <h6>Pick a password</h6>;
+   const passwordHeader = <h6>Pick a password</h6>;
 
     const changeToHebrew = (val) => {
         if (val.role == "עובד")
@@ -120,14 +85,9 @@ const AddUser = () => {
         }
     }
 
-
-
-
-
     return (
 
         <>
-            {/* <div className="form-demo"> */}
             <Button label="הוספת עובד" icon="pi pi-user-plus" onClick={() => setVisible(true)} ></Button>
             <Dialog
                 style={{}}

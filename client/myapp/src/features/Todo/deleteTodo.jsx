@@ -1,6 +1,6 @@
 import { Button } from "primereact/button"
-import { ConfirmPopup } from 'primereact/confirmpopup'; // To use <ConfirmPopup> tag
-import { confirmPopup } from 'primereact/confirmpopup'; // To use confirmPopup method
+import { ConfirmPopup } from 'primereact/confirmpopup'; 
+import { confirmPopup } from 'primereact/confirmpopup'; 
 import { Toast } from "primereact/toast";
 import { useEffect, useRef } from "react";
 import { useDeleteTodoMutation } from "./todoApiSlice";
@@ -14,9 +14,6 @@ const DeleteTodo = ({_id}) => {
         }
     }, [isSuccess])
     const accept = () => {
-        //  toast.current.show({ severity: 'info', summary: 'Confirmed', detail: 'You have deleted' });
-
-        
         deleteTodo(_id)
     }
     const confirm = (event) => {
@@ -26,8 +23,6 @@ const DeleteTodo = ({_id}) => {
             icon: 'pi pi-info-circle',
             defaultFocus: 'reject',
             accept,
-
-
         });
 
     };

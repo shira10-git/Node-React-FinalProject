@@ -1,7 +1,7 @@
 import { Button } from "primereact/button"
 import { useDeleteUserMutation } from "./userApiSlice"
-import { ConfirmPopup } from 'primereact/confirmpopup'; // To use <ConfirmPopup> tag
-import { confirmPopup } from 'primereact/confirmpopup'; // To use confirmPopup method
+import { ConfirmPopup } from 'primereact/confirmpopup';
+import { confirmPopup } from 'primereact/confirmpopup'; 
 import { Toast } from "primereact/toast";
 import { useEffect, useRef } from "react";
 const DeleteUser = (props) => {
@@ -15,9 +15,6 @@ const DeleteUser = (props) => {
         }
     }, [isSuccess])
     const accept = () => {
-        //  toast.current.show({ severity: 'info', summary: 'Confirmed', detail: 'You have deleted' });
-
-      
         deleteUser(props._id)
     }
     const confirm = (event) => {
