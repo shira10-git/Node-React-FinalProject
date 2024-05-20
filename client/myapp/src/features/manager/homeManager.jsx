@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menubar } from 'primereact/menubar';
-import {  Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import logoImg from '../../pics/logo.png'
 import { Button } from 'primereact/button';
 import { useDispatch } from 'react-redux';
@@ -16,7 +16,7 @@ import '../../index.css';
 import '../../flag.css';
 import image from './building.jpg'
 import UpdateProfile from '../user/updateProfile';
-
+import { Image } from 'primereact/image';
 export default function HomeManager() {
 
     const dispatch = useDispatch()
@@ -80,8 +80,13 @@ export default function HomeManager() {
             <div className="card">
                 <Menubar model={items} start={start} end={end} />
             </div>
+      
+
             <div style={{ backgroundImage: `url(${image})` }}></div>
             <Outlet />
+            <footer>
+                <p>© 2024 ShevaShira</p>
+            </footer>
         </>
     )
 }

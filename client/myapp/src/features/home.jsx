@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { PhotoService } from './service/ProductService';
 import image from './building.jpg'
+import HomeImg from '../pics/backbuilding.jpg'
+import { Image } from 'primereact/image';
 export default function ResponsiveDoc() {
     const [images, setImages] = useState(null);
 
@@ -37,8 +39,13 @@ export default function ResponsiveDoc() {
     }
 
     return (
-        <div  style={{ backgroundImage: `url(${image})` }}>   
-     </div>
+        <div  >               
+
+            <div className="card flex justify-content-center">
+                <Image src={HomeImg} alt="Image" width="1000" height='700' preview />
+
+            </div>
+          
+        </div>
     )
 }
-        

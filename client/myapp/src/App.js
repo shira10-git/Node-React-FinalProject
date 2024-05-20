@@ -20,6 +20,7 @@ function App() {
           <Route path='/HomeManager/AllTodos/UnComplete' element={<AllTodos done={false} />} />
         </Route>
         <Route path='/HomeWorker' element={<HomeWorker />}>
+        <Route path='/HomeWorker/Home' element={<Home />} />
           <Route path='/HomeWorker/AllTodos/Complete' element={<AllTodos done={true} />} />
           <Route path='/HomeWorker/AllTodos/UnComplete' element={<AllTodos done={false} />} />
         </Route>

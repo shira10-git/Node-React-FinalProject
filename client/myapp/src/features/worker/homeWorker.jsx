@@ -17,7 +17,7 @@ export default function HomeWorker() {
             label: 'בית',
             icon: 'pi pi-home',
             command: () => {
-                navigate('/HomeWorker');
+                navigate('/HomeWorker/Home');
             }
         },
         {
@@ -68,9 +68,11 @@ export default function HomeWorker() {
         <div className="card">
            
             <Menubar model={items} start={start} end={end} />
-        </div>
-        <h1>Welcome !!!</h1>
-
-        <Outlet /></>
+        </div>     <Outlet />
+        <footer>
+    <p>© 2024 ShevaShira</p>
+  </footer>
+</>
+   
     )
 }
