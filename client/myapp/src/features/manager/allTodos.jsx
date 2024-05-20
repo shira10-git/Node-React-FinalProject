@@ -63,13 +63,7 @@ const AllTodos = ({ done }) => {
                                     <DeleteTodo _id={data._id} />
                                     <UpdatTodo data={data} /> </div>:""}
                             </div>
-                            <div className="flex flex-column gap-2">
-                                <span className="flex align-items-center gap-3">
-                                    <i className="pi pi-tag product-category-icon"></i>
-                                    <span className="font-semibold">{role}</span>
-                                   
-                                </span>
-                            </div>
+
                         </div>
                         <div className="flex flex-row lg:flex-column align-items-center lg:align-items-end gap-4 lg:gap-2">
                        {show? <><UpdatTodo data={data}/></>:data.imageUrlWor?<ShowImageWor img={data.imageUrlWor}/>:""}

@@ -57,9 +57,9 @@ const UpdatTodo = ({ data }) => {
     }
 
     const urgencies = [
-        'נמוכה', 
+        'נמוכה',
         'בינונית',
-         'גבוהה', 
+        'גבוהה',
         'דחופה'
     ];
 
@@ -110,16 +110,16 @@ const UpdatTodo = ({ data }) => {
         updateTodo(formData)
         setVisible(false)
     };
-    const changeToHebrew=(data)=>{
-        if(data.urgency=="נמוכה")
-            data.urgency= " low";
-        
-        if(data.urgency=="בינונית")
-            data.urgency= 'medium';
-        if(data.urgency=="גבוהה")
-            data.urgency= 'high';
-        else 
-        data.urgency= 'imediatly';
+    const changeToHebrew = (data) => {
+        if (data.urgency == "נמוכה")
+            data.urgency = " low";
+
+        if (data.urgency == "בינונית")
+            data.urgency = 'medium';
+        if (data.urgency == "גבוהה")
+            data.urgency = 'high';
+        else
+            data.urgency = 'imediatly';
     }
     const getFormErrorMessage = (name) => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>
@@ -141,7 +141,7 @@ const UpdatTodo = ({ data }) => {
 
                 <div className="flex justify-content-center">
                     <div className="card">
-                        <h5 className="text-center">עדכון</h5>
+                        <h2 className="text-center">עדכון</h2>
                         <form onSubmit={handleSubmit(onSubmit)} className="p-fluid">
                             <div className="field">
 
@@ -196,11 +196,12 @@ const UpdatTodo = ({ data }) => {
                                     <label htmlFor="name" className={classNames({ 'p-error': errors.name })}>הערות עובד</label>
                                 </span>
                                 {getFormErrorMessage('workerComments')}
-                            </div><br></br></> : ""}
+                            </div></> : ""}
                             <div className="field">
 
                             </div>
-                            <Checkbox onChange={e => handle(e)} checked={checked}></Checkbox>
+                            <Checkbox onChange={e => handle(e)} checked={checked} id="check"> </Checkbox> 
+                            <label  htmlFor="check">  לעדכן על עשיית המשימה</label>
                             <Button type="submit" label="אישור" className="mt-2" />
                             <Button type="button" label="ביטול" onClick={(e) => { handleCancel(e) }} className="mt-2" />
 

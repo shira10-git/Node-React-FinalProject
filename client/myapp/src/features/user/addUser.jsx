@@ -60,7 +60,6 @@ const AddUser = () => {
 
     const onSubmit = (data) => {
         changeToHebrew(data)
-        alert(formData.role)
         setFormData(data);
         setShowMessage(true);
         setVisible(false)

@@ -32,7 +32,7 @@ const Login = () => {
                     navigate('/HomeManager/Home')
                 }
                 else if (role === "worker" || role === "advancedWorker")
-                    navigate('/HomeWorker')
+                    navigate('/HomeWorker/Home')
 
             }
             else {
@@ -71,26 +71,27 @@ const Login = () => {
                         <span class="login100-form-title p-b-46">
                             כניסה   </span>
                         <div class="wrap-input100 validate-input" data-validate="שם משתמש חובה" >
+                            
                             <Controller name="userName" control={control} rules={{ required: 'שם משתמש הוא חובה' }} render={({ field, fieldState }) => (
-                                <input class="input100" id={field.name} {...field} autoFocus />
+                                <input class="input100"  id={field.name} {...field}  placeholder="שם משתמש"  />
 
                             )} />
 
-                            <span class="focus-input100"></span>
-                            <span class="label-input100" >שם משתמש</span>
+                            {/* <span class="focus-input100"></span>
+                            <span class="label-input100" >שם משתמש</span> */}
                             {getFormErrorMessage('userName')}
                         </div>
 
 
                         <div class="wrap-input100 validate-input" data-validate="סיסמא חובה">
-
+                            
                             <Controller name="password" control={control} rules={{ required: '.סיסמא חובה' }} render={({ field, fieldState }) => (
-                                <input class="input100" type="password" id="myInput" {...field} feedback={false} />
+                                <input class="input100" type="password" id="myInput" {...field} feedback={false} placeholder="סיסמא"  />
 
 
                             )} />
-                            <span class="focus-input100"></span>
-                            <span class="label-input100">סיסמא</span>
+                            {/* <span class="focus-input100"></span>
+                            <span class="label-input100">סיסמא</span> */}
                             {getFormErrorMessage('password')}
                         </div>
                         <div className="flex align-items-center">

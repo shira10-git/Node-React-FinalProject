@@ -100,6 +100,7 @@ ul, li {
 input.input100 {
 	outline: none;
 	border:#dc3333;
+  
 }
 
 textarea {
@@ -126,7 +127,7 @@ input:-moz-placeholder { color: #999999;}
 input::-moz-placeholder { color: #999999;}
 input:-ms-input-placeholder { color: #999999;}
 
-textarea::-webkit-input-placeholder { color: #999999;}
+textarea::-webkit-input-placeholder { color: #dc4b4b;}
 textarea:-moz-placeholder { color: #999999;}
 textarea::-moz-placeholder { color: #999999;}
 textarea:-ms-input-placeholder { color: #999999;}
@@ -311,7 +312,7 @@ iframe {
 .input100 {
   display: block;
   width: 100%;
-  background: transparent;
+   background: #e8f0fe; 
   font-family: Montserrat-Regular;
   font-size: 18px;
   color: #555555;
@@ -322,9 +323,20 @@ iframe {
 input.input100 {
   height: 100%;
   -webkit-transition: all 0.4s;
+  /* background: transparent; */
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+}
+myInput.input100{
+  display: block;
+  width: 100%;
+  background: transparent;
+  font-family: Montserrat-Regular;
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.2;
+  padding: 0 26px;
 }
 
 /*---------------------------------------------*/
@@ -399,6 +411,8 @@ input.input100 {
 
 .input-checkbox100 {
   display: none;
+  
+
 }
 
 .label-checkbox100 {

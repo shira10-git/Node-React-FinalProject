@@ -16,7 +16,7 @@ import '../../index.css';
 import '../../flag.css';
 import image from './building.jpg'
 import UpdateProfile from '../user/updateProfile';
-import { Image } from 'primereact/image';
+
 export default function HomeManager() {
 
     const dispatch = useDispatch()
