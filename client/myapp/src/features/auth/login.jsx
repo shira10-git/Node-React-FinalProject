@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { InputText } from "primereact/inputtext";
 import "primereact/resources/themes/lara-light-cyan/theme.css"
@@ -6,7 +5,6 @@ import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import { classNames } from 'primereact/utils';
 import "primereact/resources/primereact.min.css"
-import "primeicons/primeicons.css"
 import "primeflex/primeflex.css"
 import { setToken } from './authSlice';
 import { useDispatch } from 'react-redux'
@@ -29,21 +27,11 @@ const Login = () => {
     const navigate = useNavigate()
 
     const [loginFunc, { isError, error, isSuccess, data }] = useLoginMutation()
-    // const { _id,name,userName,role,email} = useAuth()
-    // const [rol,setRol]=useState(role)
-    // console.log("r3"+role);
 
-    // useEffect(()=>{
-
-    // },[role])
-    // console.log("rrrr2222"+role);
     useEffect(() => {
-        // console.log("aaaaa"+ role+"l");
-
-        //   debugger
         if (data) {
             const userDecoded = jwtDecode(data.token)
-           
+
             const { _id, name, userName, phone, role, email } = userDecoded
             if (isSuccess) {
                 dispatch(setToken(data))
@@ -54,17 +42,11 @@ const Login = () => {
                 else if (role === "worker" || role === "advancedWorker")
                     navigate('/HomeWorker')
 
-                // console.log(data);
-                // 
             }
             else {
 
             }
         }
-
-        // return { _id,name,userName,phone,role,email}
-
-
 
     }, [isSuccess])
 
@@ -109,7 +91,7 @@ const Login = () => {
                             {getFormErrorMessage('userName')}
                         </div>
 
-                     
+
                         <div class="wrap-input100 validate-input" data-validate="סיסמא חובה">
 
                             <Controller name="password" control={control} rules={{ required: '.סיסמא חובה' }} render={({ field, fieldState }) => (
@@ -118,7 +100,6 @@ const Login = () => {
 
                             )} />
 
-                           
 
 
                             <span class="focus-input100"></span>
@@ -138,14 +119,8 @@ const Login = () => {
                             }}></Checkbox>
                             <label className="ml-2">הצגת סיסמא</label>
                         </div>
-                        {/* <div class="flex-sb-m w-full p-t-3 p-b-32">
-                            <div>
-                                <a href="" class="txt1">
-                                    שכחת סיסמא                                   </a>
-                            </div>
-                        </div> */}
-<br>
-</br>
+                        <br>
+                        </br>
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn" type="submit">

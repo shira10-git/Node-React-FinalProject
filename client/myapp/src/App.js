@@ -7,13 +7,16 @@ import AllWorkers from "./features/manager/allWorkers";
 import AllTodos from "./features/manager/allTodos";
 import Home from "./features/home";
 
-
 function App() {
   return (
     <>
 
 
-      
+\
+                <meta charSet="utf-8" />
+                <title>My Title</title>
+                <link rel="icon" href="nnmnm" />
+
       <Routes>
         <Route path='/' element={<Login />} />
         

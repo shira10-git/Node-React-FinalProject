@@ -1,10 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Button } from 'primereact/button';
 import { DataScroller } from 'primereact/datascroller';
-import { Rating } from 'primereact/rating';
 import { Tag } from 'primereact/tag';
-// import { ProductService } from './service/ProductService';
 import { useGetUsersQuery } from "../user/userApiSlice";
 import AddTodo from '../Todo/addTodo';
 import { Toast } from 'primereact/toast';
@@ -13,12 +10,11 @@ import DeleteUser from '../user/deleteUser';
 import UpdateUser from '../user/updateUser';
 import Search from '../../commponents/search/search';
 import { useSearchParams } from 'react-router-dom';
-import { InputText } from 'primereact/inputtext';
 const AllWorkers = () => {
     const toast = useRef(null);
 
     const [searchParams] = useSearchParams()
-   
+
     const { data: users, isLoading, isError, error } = useGetUsersQuery();
     if (isLoading) return <h1>Loading</h1>
     if (isError) return <h2>{error}</h2>
@@ -42,16 +38,11 @@ const AllWorkers = () => {
                 return null;
         }
     };
-   
-
-
-
     const itemTemplate = (data) => {
 
         return (
             <div className="col-12">
                 <div className="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
-                    {/* <img className="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" src={`https://primefaces.org/cdn/primereact/images/product/${data.image}`} alt={data.name} /> */}
                     <div className="flex flex-column lg:flex-row justify-content-between align-items-center xl:align-items-start lg:flex-1 gap-4">
                         <div className="flex flex-column align-items-center lg:align-items-start gap-3">
                             <div className="flex flex-column gap-1">
@@ -60,25 +51,19 @@ const AllWorkers = () => {
 
                                 <Tag value={getSeverity(data.active)} ></Tag>
                                 <div className="card flex flex-wrap justify-content gap-3">
-
-
                                     <DeleteUser _id={data._id} />
                                     <UpdateUser data={data} /> </div>
-                                {/* <div className="text-200">{getSeverity(data.active)}</div> */}
                             </div>
                             <div className="flex flex-column gap-2">
-                                {/* <Rating value={data.rating} readOnly cancel={false}></Rating> */}
                                 <span className="flex align-items-center gap-2">
                                     <i className="pi pi-tag product-category-icon"></i>
-                                    <span className="font-semibold">{data.role==="manager"?"מנהל":data.role==="worker"?"עובד":"עובד מומחה"}</span>
-                                    {/* <span className="font-semibold">{getSeverity(data.active)}</span> */}
+                                    <span className="font-semibold">{data.role === "manager" ? "מנהל" : data.role === "worker" ? "עובד" : "עובד מומחה"}</span>
                                 </span>
                             </div>
                         </div>
                         <div className="flex flex-row lg:flex-column align-items-center lg:align-items-end gap-4 lg:gap-2">
                             <span className="text-2xl font-semibold">{data.active}</span>
                             <AddTodo da={data} />
-                            {/* <Button  label="Add Assignment" disabled={data.active === 'false'} onClick={()=><AddTodo/>}>  <MdAssignmentAdd /></Button> */}
 
                         </div>
                     </div>
@@ -91,19 +76,11 @@ const AllWorkers = () => {
     }
     const header = () => {
         return (<>
-        <Search placeHolders={"חיפוש לפי שם משתמש"} />
-{/* <InputText /> */}
-             
-            {/* <div className="card flex justify-content-center"> */}
-                <Toast ref={toast}></Toast>
-                {/* <Button label="Add User" icon="pi pi-user-plus"  ></Button> */}
-                    <AddUser />
-                {/* <Button label="Add User" icon="pi pi-plus" onClick={<AddUser/>}  /> */}
-            {/* </div></> */}
-            </>
+            <Search placeHolders={"חיפוש לפי שם משתמש"} />
+            <Toast ref={toast}></Toast>
+            <AddUser />
+        </>
         )
-
-
     }
     return (
 
