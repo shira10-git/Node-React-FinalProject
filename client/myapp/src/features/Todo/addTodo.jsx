@@ -40,9 +40,6 @@ useEffect(() => {
         }
     }, [isSuccess])
 
-
-
-    
     const urgencies = [
         'נמוכה', 
         'בינונית',
