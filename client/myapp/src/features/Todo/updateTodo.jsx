@@ -141,7 +141,7 @@ const UpdatTodo = ({ data }) => {
 
                 <div className="flex justify-content-center">
                     <div className="card">
-                        <h2 className="text-center">עדכון</h2>
+                        <h2 className="text-center">עדכון משימה</h2>
                         <form onSubmit={handleSubmit(onSubmit)} className="p-fluid">
                             <div className="field">
 

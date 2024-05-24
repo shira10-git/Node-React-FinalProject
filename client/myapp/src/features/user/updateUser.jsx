@@ -41,7 +41,7 @@ const UpdateUser = ({ data }) => {
 
     useEffect(() => {
         if (isSuccess) {
-            toast.current.show({ severity: 'success', summary: 'Success', detail: `Data Saved mail has sent to ${formData.name}  please confirm email ${formData.email}` })
+            toast.current.show({ severity: 'success', summary: 'Success', detail: `Data Saved ` })
         }
     }, [isSuccess])
 
